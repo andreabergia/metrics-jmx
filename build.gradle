@@ -12,11 +12,16 @@ repositories {
 }
 dependencies {
     compile group: 'io.dropwizard.metrics', name: 'metrics-core', version: '3.1.0'
-//    runtime group: 'org.slf4j', name: 'slf4j-api', version: '1.7.7'
     runtime  group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.7'
 }
 
 // Gradle wrapper
 task wrapper(type: Wrapper) {
     gradleVersion = '2.6'
+}
+
+// Task to launch the project
+task execute(type:JavaExec) {
+    main = 'com.andreabergia.metricsjmx.Main'
+    classpath = sourceSets.main.runtimeClasspath
 }
